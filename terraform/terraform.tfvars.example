@@ -1,0 +1,24 @@
+# Copy this file to terraform.tfvars and fill in your values
+
+# AWS Configuration
+aws_region  = "us-east-1"
+environment = "production"
+
+# SSH Key (must exist in AWS)
+key_name = "your-key-pair-name"
+
+# Database Configuration
+db_password = "YourSecurePassword123!"
+
+# GitHub Configuration (for CodePipeline)
+github_owner  = "your-github-username"
+github_repo   = "your-repo-name"
+github_branch = "main"
+github_token  = "ghp_your_github_token"
+
+# Optional: Adjust these based on your needs
+# instance_type     = "t2.micro"
+# db_instance_class = "db.t3.micro"
+# min_instances     = 2
+# max_instances     = 4
+# desired_instances = 2

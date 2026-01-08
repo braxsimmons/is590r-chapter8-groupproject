@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Add New Donut - Donut Flavors{% endblock %}
+
+{% block content %}
+<div style="max-width: 500px; margin: 0 auto;">
+    <h2 style="color: #333; margin-bottom: 30px;">Add New Donut</h2>
+
+    <form method="POST" action="{{ url_for('add_donut') }}">
+        <div class="form-group">
+            <label for="name">Donut Name</label>
+            <input type="text" id="name" name="name" required placeholder="e.g., Chocolate Glazed">
+        </div>
+
+        <div class="form-group">
+            <label for="flavor">Flavor</label>
+            <input type="text" id="flavor" name="flavor" required placeholder="e.g., Chocolate">
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price ($)</label>
+            <input type="number" id="price" name="price" step="0.01" min="0" required placeholder="2.50">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Describe this delicious donut..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <div class="checkbox-group">
+                <input type="checkbox" id="is_available" name="is_available" checked>
+                <label for="is_available" style="margin-bottom: 0;">Available for sale</label>
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 15px; margin-top: 30px;">
+            <button type="submit" class="btn btn-primary" style="padding: 12px 30px; font-size: 1rem;">
+                Add Donut
+            </button>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary" style="padding: 12px 30px; font-size: 1rem;">
+                Cancel
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}
