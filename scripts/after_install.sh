@@ -17,6 +17,18 @@ source venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 
+# Create environment file with database credentials
+cat > /home/ec2-user/app/.env << 'ENVFILE'
+DB_HOST=donut-flavors-db.corawek8w32f.us-east-1.rds.amazonaws.com
+DB_NAME=donutdb
+DB_USER=admin
+DB_PASSWORD=Silverback2025!!
+SECRET_KEY=donut-secret-key-production-2025
+ENVFILE
+
+chown ec2-user:ec2-user /home/ec2-user/app/.env
+chmod 600 /home/ec2-user/app/.env
+
 # Create systemd service file for the Flask app
 cat > /etc/systemd/system/donut-app.service << 'SERVICEFILE'
 [Unit]
